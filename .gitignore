@@ -1,0 +1,9 @@
+
+# npm
+node_modules
+
+# dotenv environment variables
+.env
+
+# vs code settings
+.vscode

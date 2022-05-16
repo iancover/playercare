@@ -1,42 +1,50 @@
 # T-SOUP
 
-Short for **T**icket **S**ystem **OU**t**P**ut, is a MERN stack application for creating help desk or tech support tickets.
+Short for **T**icketing **S**ystem **OU**t**P**ut, is a MERN stack application for creating help desk/tech support tickets.
 
 ---
 
 ## Description
 
-The backend is a [Node](https://nodejs.org) server built with [Express](https://expressjs.com), which connects to [MongoDB](https://www.mongodb.com/)'s [noSQL](https://www.mongodb.com/nosql-explained) database using [Mongoose](https://mongoosejs.com). And the front-end is a [React](https://reactjs.org) client which uses [TailwindCSS](https://tailwindcss.com) for styling components.
+The backend is a [Node](https://nodejs.org) server built with [Express](https://expressjs.com), which connects to [MongoDB](https://www.mongodb.com/), a [noSQL](https://www.mongodb.com/nosql-explained) database using [Mongoose](https://mongoosejs.com). And the front-end is a [React](https://reactjs.org) client which uses [TailwindCSS](https://tailwindcss.com) for styling components.
 
 ### Scripts
 
-#### Run server and client in development
+Run server and client in development using [concurrently](https://npmjs.com/package/concurrently) and [nodemon](https://npmjs.com/package/nodemon)
 
 ```bash
 npm run dev
 ```
 
-#### Installing [npm](https://www.npmjs.com/) backend dependencies
+Installing [npm](https://www.npmjs.com/) backend dependencies
 
 ```bash
 npm install <pkg>
 ```
 
-#### Installing [npm](https://www.npmjs.com/) front-end dependencies
+Installing [npm](https://www.npmjs.com/) front-end dependencies
 
 ```bash
 cd frontend
 npm install
 ```
 
+Additional scripts to run server/client separately from the project folder
 
+```bash
+# server
+npm start
+# server auto refreshing
+npm run server
+# frontend
+npm run client
+```
 
 ---
 
-
 #### Environment Variables
 
-You'll need an ```.env``` file to include the [MongoDB](https://www.mongodb.com/) database connection URI, and also a [JWT](https://jwt.io/) or [JSON Web Token](https://jwt.io/) secret to encrypt user login info, for example:
+You'll need an `.env` file to include the [MongoDB](https://www.mongodb.com/) database connection URI, and also a [JWT](https://jwt.io/) or [JSON Web Token](https://jwt.io/) secret to encrypt user login info, for example:
 
 ```bash
 NODE_ENV=development

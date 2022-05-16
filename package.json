@@ -4,8 +4,10 @@
   "description": "Help desk support ticket application.",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\" "
   },
   "author": "Ian Cover",
   "license": "MIT",
@@ -21,5 +23,11 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.16"
+  },
+  "comments": {
+    "npm-start": "to run the backend only",
+    "npm-run-server": "to run the node backend auto refreshing on changes",
+    "npm-run-client": "to run the react frontend only",
+    "npm-run-dev": "to run backend auto refreshing and the frontend"
   }
 }

@@ -1,6 +1,6 @@
 # T-SOUP
 
-Short for **T**icketing **S**ystem **OU**t**P**ut, is a MERN stack application for creating help desk/tech support tickets.
+**T**icket-**S**ystem **O**utput and **U**ser **P**latform, is a MERN stack application for creating help desk and support tickets.
 
 ---
 

@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
   res.status(201).json({ message: 'Ticket-System Output and User Platform' });
 });
 
+// Mount routes
 app.use('/api/users', require('./routes/userRoutes'));
 
 // Handle errors

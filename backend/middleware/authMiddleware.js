@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const User = require('../models/userModel');
 
 /** Auth Middleware
- * @desc  Verify auth and create session token
+ * @desc  Verify token and auth
  */
 const auth = asyncHandler(async (req, res, next) => {
   let token;

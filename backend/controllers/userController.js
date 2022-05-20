@@ -1,8 +1,9 @@
 const asyncHandler = require('express-async-handler');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs'); // hash pwd to store in db
+const jwt = require('jsonwebtoken'); // token for auth
 const JWT_SECRET = process.env.JWT_SECRET;
 
+// Model
 const User = require('../models/userModel');
 
 /** POST
@@ -14,13 +15,13 @@ exports.registerUser = asyncHandler(async (req, res) => {
   // input data
   const { name, email, password } = req.body;
 
-  // validation
+  // input validation
   if (!name || !email || !password) {
     res.status(400);
     throw new Error('Please include all fields');
   }
 
-  // check if exists
+  // check if user exists
   const userExists = await User.exists({ email: email }); // or { email }
   if (userExists) {
     res.status(400);
@@ -63,7 +64,7 @@ exports.loginUser = asyncHandler(async (req, res) => {
 
   // find user by email
   const user = await User.findOne({ email });
-
+  
   // check pwds match
   if (user && (await bcrypt.compare(password, user.password))) {
     res.status(200).json({
@@ -78,8 +79,18 @@ exports.loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-const generateToken = (id) => {
+/** GET
+ * @desc    Current auth user
+ * @route   /api/users/me
+ * @access  Private
+ */
+exports.getMe = asyncHandler(async (req, res) => {
+  res.status(200).json(req.user);
+});
+
+// 30-day JWT token w/user ID
+function generateToken(id) {
   return jwt.sign({ id }, JWT_SECRET, {
-    expiresIn: '30',
+    expiresIn: '30d',
   });
-};
+}

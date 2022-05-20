@@ -64,7 +64,7 @@ exports.loginUser = asyncHandler(async (req, res) => {
 
   // find user by email
   const user = await User.findOne({ email });
-  
+
   // check pwds match
   if (user && (await bcrypt.compare(password, user.password))) {
     res.status(200).json({
@@ -85,7 +85,13 @@ exports.loginUser = asyncHandler(async (req, res) => {
  * @access  Private
  */
 exports.getMe = asyncHandler(async (req, res) => {
-  res.status(200).json(req.user);
+  const user = {
+    id: req.user._id,
+    email: req.user.email,
+    name: req.user.name,
+  };
+
+  res.status(200).json(user);
 });
 
 // 30-day JWT token w/user ID

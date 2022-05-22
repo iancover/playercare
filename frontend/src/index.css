@@ -68,6 +68,11 @@ h3 {
   color: var(--mid-light-grey);
 }
 
+.btn-icon {
+  font-size: 1.4rem;
+  vertical-align: middle;
+}
+
 .container {
   margin: 0 auto;
   padding: 0 0px;

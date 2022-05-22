@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom';
 function Nav() {
   let location = useLocation();
 
-  console.log(location);
-
   return (
     <nav className='nav'>
       <h2 className='logo'>

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { RiUser3Line } from 'react-icons/ri';
 import { toast } from 'react-toastify';
 
 function Register() {
@@ -35,10 +34,7 @@ function Register() {
   return (
     <>
       <header className='heading'>
-        <h1>
-          <RiUser3Line />
-          &nbsp;Register
-        </h1>
+        <h1>Register</h1>
         <p>Create a new account.</p>
       </header>
 
@@ -97,7 +93,7 @@ function Register() {
           </div>
 
           <div className='form-group'>
-            <button className='btn btn-block'>Submit</button>
+            <button className='btn btn-block'>Create Account</button>
           </div>
         </form>
       </section>

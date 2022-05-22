@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { RiUser3Line } from 'react-icons/ri';
 import { toast } from 'react-toastify';
 
 function Login() {
@@ -28,11 +27,8 @@ function Login() {
   return (
     <>
       <header className='heading'>
-        <h1>
-          <RiUser3Line />
-          &nbsp;Login
-        </h1>
-        <p>Sign in to your account.</p>
+        <h1>Login</h1>
+        <p>Sign in to your existing account.</p>
       </header>
 
       <section className='form'>
@@ -64,7 +60,7 @@ function Login() {
           </div>
 
           <div className='form-group'>
-            <button className='btn btn-block'>Submit</button>
+            <button className='btn btn-block'>Sign In</button>
           </div>
         </form>
       </section>

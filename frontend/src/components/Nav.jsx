@@ -1,13 +1,16 @@
+import { useLocation } from 'react-router-dom';
 import {
   RiLoginCircleLine,
-  // eslint-disable-next-line no-unused-vars
-  RiLogoutCircleLine,
-  RiUser3Line,
+  RiUserAddLine,
   RiTerminalLine,
 } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
 function Nav() {
+  let location = useLocation();
+
+  console.log(location);
+
   return (
     <nav className='nav'>
       <h2 className='logo'>
@@ -17,18 +20,36 @@ function Nav() {
         </Link>
       </h2>
       <ul>
-        <li>
-          <Link to='/login'>
-            <RiLoginCircleLine className='icon' />
-            &nbsp;Login
-          </Link>
-        </li>
-        <li>
-          <Link to='/register'>
-            <RiUser3Line className='icon' />
-            &nbsp;Register
-          </Link>
-        </li>
+        {location.pathname === '/' ? (
+          <>
+            <li>
+              <Link to='/login'>
+                <RiLoginCircleLine className='icon' />
+                &nbsp;Login
+              </Link>
+            </li>
+            <li>
+              <Link to='/register'>
+                <RiUserAddLine className='icon' />
+                &nbsp;Register
+              </Link>
+            </li>
+          </>
+        ) : location.pathname === '/login' ? (
+          <li>
+            <Link to='/register'>
+              <RiUserAddLine className='icon' />
+              &nbsp;Register
+            </Link>
+          </li>
+        ) : (
+          <li>
+            <Link to='/login'>
+              <RiLoginCircleLine className='icon' />
+              &nbsp;Login
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

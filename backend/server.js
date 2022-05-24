@@ -1,6 +1,7 @@
 // Modules
 const express = require('express');
 const path = require('path');
+const timestamp = require('time-stamp');
 const colors = require('colors');
 require('dotenv').config();
 
@@ -18,18 +19,23 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // true = 'qs' library
 
+// Mount routes
+app.use('/api/users', require('./routes/userRoutes'));
+
 // Routes
 app.get('/', (req, res) => {
   res.status(201).json({ message: 'Ticket-System Output and User Platform' });
 });
-
-// Mount routes
-app.use('/api/users', require('./routes/userRoutes'));
 
 // Handle errors
 app.use(errorHandler);
 
 // Server
 app.listen((port = process.env.PORT || 8000), () => {
-  console.log(colors.cyan(`Server listening on PORT: ${port}`));
+  let time = timestamp('HH:mm:ss');
+  console.log(
+    colors.cyan(
+      `Server listening on PORT: ${port.yellow} at TIME: ${time.yellow}`
+    )
+  );
 });

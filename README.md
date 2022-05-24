@@ -1,50 +1,73 @@
-# T-SOUP
+# t-soup API
 
-**T**icket-**S**ystem **O**utput and **U**ser **P**latform, is a MERN stack application for creating help desk and support tickets.
+## Ticketing-System Output and User Platform
+
+A REST client-server web application designed for help desk users to create support tickets, built using the [MERN](https://www.geeksforgeeks.org/mern-stack/) stack.
+
+For the frontend documentation see [t-soup UI](https://github.com/iancover/t-soup/tree/main/frontend/README.md)
 
 ---
 
-## Description
+## Run Scripts
 
-The backend is a [Node](https://nodejs.org) server built with [Express](https://expressjs.com), which connects to [MongoDB](https://www.mongodb.com/), a [noSQL](https://www.mongodb.com/nosql-explained) database using [Mongoose](https://mongoosejs.com). And the front-end is a [React](https://reactjs.org) client which uses [TailwindCSS](https://tailwindcss.com) for styling components.
+Both the server _(auto-reloads with [nodemon](https://npmjs.com/package/nodemon))_ and the client applications are setup to run simultaneously in development mode using [concurrently](https://npmjs.com/package/concurrently).
 
-### Scripts
-
-Run server and client in development using [concurrently](https://npmjs.com/package/concurrently) and [nodemon](https://npmjs.com/package/nodemon)
+From your root project folder in your terminal run the following
 
 ```bash
 npm run dev
 ```
 
-Installing [npm](https://www.npmjs.com/) backend dependencies
+and open [http://localhost:3000](http://localhost:3000) in your brower to view the app.
+
+### Server
+
+The backend API is a [Node](https://nodejs.org)[/Express](https://expressjs.com) server which connects to a [noSQL](https://www.mongodb.com/nosql-explained) database in [MongoDB](https://www.mongodb.com/) using the [Mongoose](https://mongoosejs.com) object modeling library.
+
+To start the server by itself, also from the project folder run
 
 ```bash
-npm install <pkg>
-```
-
-Installing [npm](https://www.npmjs.com/) front-end dependencies
-
-```bash
-cd frontend
-npm install
-```
-
-Additional scripts to run server/client separately from the project folder
-
-```bash
-# server
+# manually
 npm start
-# server auto refreshing
+
+# or auto-reloading with nodemon
 npm run server
-# frontend
+```
+
+### Client
+
+The frontend UI is a [React](https://reactjs.org)[/Redux]() single-page application bootstrapped with [Create React App](https://create-react-app.com) using the [Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started) template, e.g.
+
+```bash
+npx create-react-app frontend --template redux
+```
+
+To start the client by itself, also from your project folder run
+
+```bash
 npm run client
+```
+
+---
+
+### Dependencies
+
+For installing [npm](https://www.npmjs.com/) packages
+
+```bash
+# backend/package.json
+npm i <pkg>
+
+# frontend/package.json
+cd frontend
+npm i <pkg>
 ```
 
 ---
 
 #### Environment Variables
 
-You'll need an `.env` file to include the [MongoDB](https://www.mongodb.com/) database connection URI, and also a [JWT](https://jwt.io/) or [JSON Web Token](https://jwt.io/) secret to encrypt user login info, for example:
+You'll need an `.env` file _(on your root project folder)_ to include the [MongoDB](https://www.mongodb.com/) database connection URI and a [JSON Web Token](https://jwt.io/) secret to encrypt user login info, i.e.
 
 ```bash
 NODE_ENV=development
@@ -52,3 +75,5 @@ PORT=5000
 MONGO_URI=mongodb+srv://<your-db-uri>
 JWT_SECRET=soM3VeRyLOngAlPhaNUMer1cEncRypT10n
 ```
+
+Here is a quick intro to [MongoDB Atlas](https://www.youtube.com/watch?v=xrc7dIO_tXk) to setup your database.

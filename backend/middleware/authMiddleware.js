@@ -3,26 +3,24 @@ const asyncHandler = require('express-async-handler');
 // Model
 const User = require('../models/userModel');
 
-/** Auth Middleware
- * @desc  Verify token and auth
- */
+// Middleware to auth user
 const auth = asyncHandler(async (req, res, next) => {
   let token;
 
-  // Check for authorization header and token
+  // check auth header & Bearer token
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith('Bearer')
   ) {
     try {
-      // Extract token from 'Bearer <token>'
+      // extract & decode token
       token = req.headers.authorization.split(' ')[1];
-      // Decode token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      // Get user from token
+
+      // get user w/decoded & call next piece of middleware
       req.user = await User.findById(decoded.id).select('-password');
-      // Call next piece of middleware
       next();
+
     } catch (err) {
       console.log(err);
       res.status(401);

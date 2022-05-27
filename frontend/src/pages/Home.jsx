@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import { RiFileAddFill, RiClipboardFill } from 'react-icons/ri';
 
+// Spinner
+// import Spinner from '../components/Spinner';
+
 function Home() {
   return (
     <>

@@ -6,11 +6,9 @@ const JWT_SECRET = process.env.JWT_SECRET;
 // Model
 const User = require('../models/userModel');
 
-/** POST
- * @desc    Register new user
- * @route   /api/users
- * @access  Public
- */
+// @desc    Register new user
+// @route   POST  /api/users
+// @access  Public
 exports.registerUser = asyncHandler(async (req, res) => {
   // input data
   const { name, email, password } = req.body;
@@ -22,7 +20,7 @@ exports.registerUser = asyncHandler(async (req, res) => {
   }
 
   // check if user exists
-  const userExists = await User.exists({ email: email }); // or { email }
+  const userExists = await User.exists({ email: email });
   if (userExists) {
     res.status(400);
     throw new Error(`User already exists.`);
@@ -53,18 +51,13 @@ exports.registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-/** POST
- * @desc    Login user
- * @route   /api/users/login
- * @access  Public
- */
+// @desc    Login user
+// @route   POST  /api/users/login
+// @access  Public
 exports.loginUser = asyncHandler(async (req, res) => {
-  // get email & pwd
   const { email, password } = req.body;
-
   // find user by email
   const user = await User.findOne({ email });
-
   // check pwds match
   if (user && (await bcrypt.compare(password, user.password))) {
     res.status(200).json({
@@ -79,18 +72,15 @@ exports.loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-/** GET
- * @desc    Current auth user
- * @route   /api/users/me
- * @access  Private
- */
+// @desc    Current auth user
+// @route   GET   /api/users/me
+// @access  Private
 exports.getMe = asyncHandler(async (req, res) => {
   const user = {
     id: req.user._id,
     email: req.user.email,
     name: req.user.name,
   };
-
   res.status(200).json(user);
 });
 

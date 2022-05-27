@@ -27,7 +27,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-      <ToastContainer draggable={false} transition={Flip} />
+      <ToastContainer draggable={false} transition={Slide} />
     </>
   );
 }

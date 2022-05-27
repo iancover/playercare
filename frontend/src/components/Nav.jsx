@@ -1,13 +1,31 @@
+// Hooks
 import { useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+// Slice
+import { logout, reset } from '../features/auth/authSlice';
+
+// Icons
 import {
   RiLoginCircleLine,
+  RiLogoutCircleLine,
   RiUserAddLine,
   RiTerminalLine,
 } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
 
+// Nav component
 function Nav() {
-  let location = useLocation();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
+
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
+    navigate('/');
+  };
 
   return (
     <nav className='nav'>
@@ -17,19 +35,27 @@ function Nav() {
           <RiTerminalLine className='icon' />
         </Link>
       </h2>
+
       <ul>
-        {location.pathname === '/' ? (
+        {user ? (
+          <li>
+            <button className='logout-btn' onClick={onLogout}>
+              <RiLogoutCircleLine className='icon' />
+              Logout
+            </button>
+          </li>
+        ) : location.pathname === '/' ? (
           <>
             <li>
               <Link to='/login'>
                 <RiLoginCircleLine className='icon' />
-                &nbsp;Login
+                Login
               </Link>
             </li>
             <li>
               <Link to='/register'>
                 <RiUserAddLine className='icon' />
-                &nbsp;Register
+                Register
               </Link>
             </li>
           </>
@@ -37,14 +63,14 @@ function Nav() {
           <li>
             <Link to='/register'>
               <RiUserAddLine className='icon' />
-              &nbsp;Register
+              Register
             </Link>
           </li>
         ) : (
           <li>
             <Link to='/login'>
               <RiLoginCircleLine className='icon' />
-              &nbsp;Login
+              Login
             </Link>
           </li>
         )}

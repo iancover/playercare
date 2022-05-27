@@ -15,16 +15,17 @@ connectDB();
 // App init
 const app = express();
 
-// App config
+// JSON & URL query string parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // true = 'qs' library
 
 // Mount routes
 app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/tickets', require('./routes/ticketRoutes'));
 
 // Routes
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Ticket-System Output and User Platform' });
+  res.status(201).json({ message: 'Ticket-System Output and User Platform' });
 });
 
 // Handle errors

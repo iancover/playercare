@@ -24,7 +24,7 @@ app.use('/api/users', require('./routes/userRoutes'));
 
 // Routes
 app.get('/', (req, res) => {
-  res.status(201).json({ message: 'Ticket-System Output and User Platform' });
+  res.status(200).json({ message: 'Ticket-System Output and User Platform' });
 });
 
 // Handle errors

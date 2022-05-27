@@ -1,14 +1,46 @@
-import { useState } from 'react';
-import { toast } from 'react-toastify';
+// Hooks
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
+// Slice
+import { login, reset } from '../features/auth/authSlice';
+// Toast
+import { toast } from 'react-toastify';
+// Spinner
+import Spinner from '../components/Spinner';
+
+// Login component
 function Login() {
+  // form data state
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-
   const { email, password } = formData;
 
+  // store dispatch & redirect
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // extract from redux store
+  const { user, isError, isLoading, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  // error alert or redirect logged in & reset state
+  useEffect(() => {
+    if (isError) {
+      toast.error(message, { theme: 'dark' });
+    }
+    if (isSuccess || user) {
+      navigate('/');
+    }
+
+    dispatch(reset()); // authSlice.actions
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
+
+  // display input text typing
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -16,13 +48,21 @@ function Login() {
     }));
   };
 
+  // login user
   const onSubmit = (e) => {
     e.preventDefault();
+    const userData = {
+      email,
+      password,
+    };
 
-    toast.success('Form submitted successfully!', {
-      theme: 'colored',
-    });
+    // login w/thunk
+    dispatch(login(userData));
   };
+
+  if (isLoading) {
+    <Spinner />
+  }
 
   return (
     <>

@@ -1,16 +1,48 @@
-import { useState } from 'react';
-import { toast } from 'react-toastify';
+// Hooks
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
+// Redux reducer slice
+import { register, reset } from '../features/auth/authSlice';
+// Toast
+import { toast } from 'react-toastify';
+// Spinner
+import Spinner from '../components/Spinner';
+
+// Register component
 function Register() {
+  // state form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     password2: '',
   });
-
   const { name, email, password, password2 } = formData;
 
+  // store dispatch & redirect
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // extract from store
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  // error alert or redirect logged in & reset state
+  useEffect(() => {
+    if (isError) {
+      toast.error(message, { theme: 'dark' });
+    }
+    if (isSuccess || user) {
+      navigate('/');
+    }
+
+    dispatch(reset()); // authSlice.actions
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
+
+  // display input text typed
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -18,18 +50,28 @@ function Register() {
     }));
   };
 
+  // user form data
   const onSubmit = (e) => {
     e.preventDefault();
     if (password !== password2) {
       toast.error('Passwords do not match.', {
-        theme: 'colored',
+        theme: 'dark',
       });
     } else {
-      toast.success('Form submitted successfully!', {
-        theme: 'colored',
-      });
+      const userData = {
+        name,
+        email,
+        password,
+      };
+
+      // register w/thunk
+      dispatch(register(userData));
     }
   };
+
+  if (isLoading) {
+    <Spinner />;
+  }
 
   return (
     <>
@@ -62,6 +104,7 @@ function Register() {
               value={email}
               onChange={onChange}
               placeholder='Email'
+              autoComplete='username'
               required
             />
           </div>
@@ -75,6 +118,7 @@ function Register() {
               value={password}
               onChange={onChange}
               placeholder='Password'
+              autoComplete='new-password'
               required
             />
           </div>
@@ -88,6 +132,7 @@ function Register() {
               value={password2}
               onChange={onChange}
               placeholder='Confirm Password'
+              autoComplete='new-password'
               required
             />
           </div>

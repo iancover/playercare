@@ -60,15 +60,20 @@ function Login() {
     dispatch(login(userData));
   };
 
+  // @todo  Add random greeting display
+
   if (isLoading) {
-    <Spinner />
+    <Spinner />;
   }
 
   return (
     <>
       <header className='heading'>
-        <h1>Login</h1>
-        <p>Sign in to your existing account.</p>
+        <h1>
+          <span className='heading-first'>player</span>/
+          <span className='heading-last'>sign-in</span>
+        </h1>
+        <p>welcome back, please login to your account</p>
       </header>
 
       <section className='form'>
@@ -81,7 +86,7 @@ function Login() {
               name='email'
               value={email}
               onChange={onChange}
-              placeholder='Email'
+              placeholder='email'
               required
             />
           </div>
@@ -94,7 +99,7 @@ function Login() {
               name='password'
               value={password}
               onChange={onChange}
-              placeholder='Password'
+              placeholder='password'
               required
             />
           </div>

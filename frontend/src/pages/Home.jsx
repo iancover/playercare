@@ -8,17 +8,19 @@ function Home() {
   return (
     <>
       <header className='heading'>
-        <h1>Support Tickets</h1>
-        <p>Create a new ticket or view existing?</p>
+        <h1 className='heading-last' style={{ fontWeight: '500' }}>
+          ticket desk
+        </h1>
+        <p>create new / search existing</p>
       </header>
 
       <section className='form'>
         <Link to='/new-ticket' className='btn btn-reverse btn-block'>
-          <RiFileAddFill className='btn-icon' /> Create New
+          <RiFileAddFill className='btn-icon' /> Create
         </Link>
 
         <Link to='/tickets' className='btn btn-block'>
-          <RiClipboardFill className='btn-icon' /> View Existing
+          <RiClipboardFill className='btn-icon' /> Search
         </Link>
       </section>
     </>

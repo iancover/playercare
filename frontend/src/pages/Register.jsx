@@ -69,6 +69,8 @@ function Register() {
     }
   };
 
+  // @todo Add random greeting display
+
   if (isLoading) {
     <Spinner />;
   }
@@ -76,8 +78,13 @@ function Register() {
   return (
     <>
       <header className='heading'>
-        <h1>Register</h1>
-        <p>Create a new account.</p>
+        <h1>
+          <span className='heading-first'>player</span>/
+          <span className='heading-last'>sign-up</span>
+        </h1>
+        <p>
+          welcome, let's first setup your account
+        </p>
       </header>
 
       <section className='form'>
@@ -90,7 +97,7 @@ function Register() {
               name='name'
               value={name}
               onChange={onChange}
-              placeholder='Name'
+              placeholder='name'
               required
             />
           </div>
@@ -103,7 +110,7 @@ function Register() {
               name='email'
               value={email}
               onChange={onChange}
-              placeholder='Email'
+              placeholder='email'
               autoComplete='username'
               required
             />
@@ -117,7 +124,7 @@ function Register() {
               name='password'
               value={password}
               onChange={onChange}
-              placeholder='Password'
+              placeholder='password'
               autoComplete='new-password'
               required
             />
@@ -131,14 +138,14 @@ function Register() {
               name='password2'
               value={password2}
               onChange={onChange}
-              placeholder='Confirm Password'
+              placeholder='confirm password'
               autoComplete='new-password'
               required
             />
           </div>
 
           <div className='form-group'>
-            <button className='btn btn-block'>Create Account</button>
+            <button className='btn btn-block'>Sign Up</button>
           </div>
         </form>
       </section>

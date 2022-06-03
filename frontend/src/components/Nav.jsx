@@ -11,7 +11,7 @@ import {
   RiLoginCircleLine,
   RiLogoutCircleLine,
   RiUserAddLine,
-  RiTerminalLine,
+  RiTerminalBoxFill,
 } from 'react-icons/ri';
 
 // Nav component
@@ -29,52 +29,55 @@ function Nav() {
 
   return (
     <nav className='nav'>
-      <h2 className='logo'>
-        <Link to='/'>
-          t soup&nbsp;
-          <RiTerminalLine className='icon' />
-        </Link>
-      </h2>
+      <div className='nav-container'>
+        <h2 className='logo'>
+          <Link to='/' className='logo-link'>
+            <span className='logo-first'>player</span>.
+            <span className='logo-last'>care</span>
+            <RiTerminalBoxFill className='icon' />
+          </Link>
+        </h2>
 
-      <ul>
-        {user ? (
-          <li>
-            <button className='logout-btn' onClick={onLogout}>
-              <RiLogoutCircleLine className='icon' />
-              Logout
-            </button>
-          </li>
-        ) : location.pathname === '/' ? (
-          <>
+        <ul>
+          {user ? (
             <li>
-              <Link to='/login'>
-                <RiLoginCircleLine className='icon' />
-                Login
-              </Link>
+              <button className='logout-btn' onClick={onLogout}>
+                <RiLogoutCircleLine className='icon' />
+                sign out
+              </button>
             </li>
+          ) : location.pathname === '/' ? (
+            <>
+              <li>
+                <Link to='/login'>
+                  <RiLoginCircleLine className='icon' />
+                  sign in
+                </Link>
+              </li>
+              <li>
+                <Link to='/register'>
+                  <RiUserAddLine className='icon' />
+                  sign up
+                </Link>
+              </li>
+            </>
+          ) : location.pathname === '/login' ? (
             <li>
               <Link to='/register'>
                 <RiUserAddLine className='icon' />
-                Register
+                sign up
               </Link>
             </li>
-          </>
-        ) : location.pathname === '/login' ? (
-          <li>
-            <Link to='/register'>
-              <RiUserAddLine className='icon' />
-              Register
-            </Link>
-          </li>
-        ) : (
-          <li>
-            <Link to='/login'>
-              <RiLoginCircleLine className='icon' />
-              Login
-            </Link>
-          </li>
-        )}
-      </ul>
+          ) : (
+            <li>
+              <Link to='/login'>
+                <RiLoginCircleLine className='icon' />
+                sign in
+              </Link>
+            </li>
+          )}
+        </ul>
+      </div>
     </nav>
   );
 }

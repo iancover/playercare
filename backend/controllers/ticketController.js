@@ -22,5 +22,30 @@ exports.getTickets = asyncHandler(async (req, res) => {
 // @route   POST  /api/tickets
 // @access  Private
 exports.createTicket = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: 'createTicket' });
+  // get input values { user, product, description, status }
+  const { platform, issue, description } = req.body;
+
+  // validate
+  if (!platform || !issue || !description) {
+    res.status(400);
+    throw new Error('Missing platform, issue or description.');
+  }
+
+  // get user
+  const user = await User.findById(req.user.id);
+  if (!user) {
+    res.status(401);
+    throw new Error('User not found');
+  }
+
+  // create and return ticket data
+  const ticket = await Ticket.create({
+    platform,
+    issue,
+    description,
+    user: user.id,
+    status: 'open',
+  });
+
+  res.status(201).json(ticket);
 });

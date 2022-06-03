@@ -25,7 +25,7 @@ app.use('/api/tickets', require('./routes/ticketRoutes'));
 
 // Routes
 app.get('/', (req, res) => {
-  res.status(201).json({ message: 'Ticket-System Output and User Platform' });
+  res.status(201).json({ message: 'PlayerCare backend API running...' });
 });
 
 // Handle errors

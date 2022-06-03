@@ -1,10 +1,10 @@
-# t-soup API
+# [PlayerCare API](https://github.com/iancover/player-care)
 
-## Ticketing-System Output and User Platform
+## Gaming Industry Help Desk
 
-A REST client-server web application designed for help desk users to create support tickets, built using the [MERN](https://www.geeksforgeeks.org/mern-stack/) stack.
+A client-server REST application designed with the purpose of providing a tech support team at a video-game developing company, ticket creating and tracking capabilities; to assist **_players_** experiencing technical issues, with online support for their cross-platform products.
 
-For the frontend documentation see [t-soup UI](https://github.com/iancover/t-soup/tree/main/frontend/README.md)
+Built using the [MERN](https://www.geeksforgeeks.org/mern-stack/) stack, for the frontend documentation see [PlayerCare UI](https://github.com/iancover/t-soup/tree/main/frontend/README.md)
 
 ---
 

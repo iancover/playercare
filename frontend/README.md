@@ -1,6 +1,6 @@
-# t-soup UI
+# [PlayerCare UI](https://github.com/iancover/player-care)
 
-## Ticketing-System Output and User Platform
+## Gaming Industry Help Desk App
 
 This **frontend** application is bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and the [Redux Toolkit](https://redux-toolkit.js.org/) template.
 

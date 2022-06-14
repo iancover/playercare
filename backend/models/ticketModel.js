@@ -10,15 +10,12 @@ const ticketSchema = mongoose.Schema(
     },
     platform: {
       type: String,
-      required: [true, 'Which platform are you gaming on?'],
+      required: [true, 'Select the platform the game is running on.'],
       enum: ['Nintendo Switch', 'Xbox Series X', 'PlayStation 5', 'PC Windows'],
     },
     issue: {
       type: String,
-      required: [
-        true,
-        'Select the option that best identifies the type of issue.',
-      ],
+      required: [true, 'Select the type of issue being experienced.'],
       enum: [
         'Malfunction',
         'Unresponsive',
@@ -31,7 +28,7 @@ const ticketSchema = mongoose.Schema(
     },
     description: {
       type: String,
-      required: [true, 'Please provide a short description of the issue.'],
+      required: [true, 'Provide a short description of the issue experienced.'],
     },
     status: {
       type: String,

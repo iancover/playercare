@@ -77,6 +77,43 @@ h3 {
   font-weight: 300;
 }
 
+input.form-control:focus,
+select.form-control:focus,
+textarea.form-control:focus {
+  outline: none;
+  border: 1px var(--light-blue) solid;
+}
+
+label {
+  color: var(--not-dark);
+  font-size: 1.2rem;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='cornflowerblue' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+/*  UTILITY  */
+.opacity-100 {
+  opacity: 1;
+}
+.opacity-75 {
+  opacity: 0.75;
+}
+.opacity-50 {
+  opacity: 0.5;
+}
+.opacity-25 {
+  opacity: 0.25;
+}
+.fst-italic {
+  font-style: italic;
+}
+
 .logo {
   font-weight: 800;
   font-size: 2rem;
@@ -124,7 +161,6 @@ h3 {
 }
 
 /*  NAV  */
-
 .nav {
   display: flex;
   /* justify-content: space-between; */

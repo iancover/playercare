@@ -15,7 +15,7 @@ function Home() {
       </header>
 
       <section className='form'>
-        <Link to='/new-ticket' className='btn btn-reverse btn-block'>
+        <Link to='/new-ticket' className='btn btn-inverse btn-block'>
           <RiFileAddFill className='btn-icon' /> Create
         </Link>
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 // api - proxy: http://localhost:5000
 const API_URL = '/api/tickets/';
 
-// POST ticket  /api/tickets/,  store local & return
+// POST ticket  /api/tickets/
 const createNewTicket = async (ticketData, token) => {
   // config auth request header w/Bearer token
   const config = {

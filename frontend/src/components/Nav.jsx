@@ -6,13 +6,16 @@ import { useSelector, useDispatch } from 'react-redux';
 // Slice
 import { logout, reset } from '../features/auth/authSlice';
 
-// Icons
+// Remix Icons
 import {
   RiLoginCircleLine,
   RiLogoutCircleLine,
   RiUserAddLine,
+  // eslint-disable-next-line no-unused-vars
   RiTerminalBoxFill,
 } from 'react-icons/ri';
+// Ionicons
+import { IoGameController } from 'react-icons/io5';
 
 // Nav component
 function Nav() {
@@ -32,9 +35,9 @@ function Nav() {
       <div className='nav-container'>
         <h2 className='logo'>
           <Link to='/' className='logo-link'>
+            <IoGameController className='icon' />
             <span className='logo-first'>player</span>.
             <span className='logo-last'>care</span>
-            <RiTerminalBoxFill className='icon' />
           </Link>
         </h2>
 

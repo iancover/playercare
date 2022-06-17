@@ -5,6 +5,7 @@ import { store } from './app/store';
 
 import App from './App';
 import './index.css';
+import './utilities.css';
 
 import reportWebVitals from './reportWebVitals';
 

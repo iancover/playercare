@@ -1,20 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { RiFileAddFill } from 'react-icons/ri';
 
-// Component
+// Components
 import Button from '../components/Button';
-
 // Slice
 import { createTicket, reset } from '../features/tickets/ticketSlice';
-// Issue types data
-import { issueTypes } from '../data/issueTypes';
-// Toast
-import { toast } from 'react-toastify';
+// Data
+import { gamePlatforms, issueTypes } from '../data/ticketOptions';
 // Spinner
 import Spinner from '../components/Spinner';
-// Ant Design Icons
-import { RiFileAddFill } from 'react-icons/ri';
 
 function NewTicket() {
   // get user & tickets from state
@@ -28,15 +25,15 @@ function NewTicket() {
   const [platform, setPlatform] = useState('');
   const [issue, setIssue] = useState('');
   const [description, setDescription] = useState('');
-  // ref textarea
+  // ref inputs
   const selectPlatformRef = useRef();
   const selectIssueRef = useRef();
   const textRef = useRef();
-  // to dispatch action & payload
+  // store dispatch action & payload
   const dispatch = useDispatch();
-  // to redirect
+  // auth redirect
   const navigate = useNavigate();
-  // on render
+  // on comp mount
   useEffect(() => {
     // mute default option text
     if (selectPlatformRef.current.value === '1') {
@@ -65,6 +62,9 @@ function NewTicket() {
     message,
   ]);
 
+  const platformsList = gamePlatforms();
+  const issuesList = issueTypes();
+
   const onSubmit = (e) => {
     e.preventDefault();
     console.log({ platform, issue, description });
@@ -77,11 +77,10 @@ function NewTicket() {
   };
 
   const onChangeIssue = (e) => {
-    const issues = issueTypes();
     selectIssueRef.current.className = 'form-control';
     textRef.current.className = 'form-control opacity-75 fst-italic';
     // desc textarea placeholder matching issue select value
-    issues.forEach((issue) => {
+    issuesList.forEach((issue) => {
       if (e.target.value === issue.type) {
         textRef.current.placeholder = issue.desc;
       }
@@ -108,49 +107,62 @@ function NewTicket() {
         <p>create a new support ticket</p>
       </header>
       <section className='form'>
-        <div className='form-group'>
-          <label htmlFor='name'>player</label>
-          <input type='text' className='form-control' value={name} disabled />
-        </div>
-        <div className='form-group'>
-          <label htmlFor='email'>email</label>
-          <input type='text' className='form-control' value={email} disabled />
-        </div>
-        <form onSubmit={onSubmit}>
+        <div className='form-row'>
           <div className='form-group'>
-            <label htmlFor='platform'>platform</label>
-            <select
-              name='platform'
-              id='platform'
-              className='form-control'
-              value={platform}
-              ref={selectPlatformRef}
-              onChange={onChangePlatform}>
-              <option value={1}>-- select device --</option>
-              <option>Nintendo Switch</option>
-              <option>Xbox Series X</option>
-              <option>PlayStation 5</option>
-              <option>PC Windows</option>
-            </select>
+            <label htmlFor='name'>player</label>
+            <input
+              type='text'
+              className='form-control form-disabled'
+              value={name}
+              disabled
+            />
           </div>
           <div className='form-group'>
-            <label htmlFor='issue'>issue</label>
-            <select
-              name='issue'
-              id='issue'
-              className='form-control'
-              value={issue}
-              ref={selectIssueRef}
-              onChange={onChangeIssue}>
-              <option value={1}>-- select type --</option>
-              <option value={'Malfunction'}>Malfunction</option>
-              <option value={'Unresponsive'}>Unresponsive</option>
-              <option value={'Connection'}>Connection</option>
-              <option value={'Memory'}>Memory</option>
-              <option value={'Graphics'}>Graphics</option>
-              <option value={'Sounds'}>Sounds</option>
-              <option value={'Other'}>Other</option>
-            </select>
+            <label htmlFor='email'>email</label>
+            <input
+              type='text'
+              className='form-control form-disabled'
+              value={email}
+              disabled
+            />
+          </div>
+        </div>
+        <form onSubmit={onSubmit}>
+          <div className='form-row'>
+            <div className='form-group'>
+              <label htmlFor='platform'>platform</label>
+              <select
+                name='platform'
+                id='platform'
+                className='form-control'
+                value={platform}
+                ref={selectPlatformRef}
+                onChange={onChangePlatform}>
+                <option value={1}>-- select device --</option>
+                {platformsList.map((platform) => (
+                  <option key={platform.key} value={platform.name}>
+                    {platform.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className='form-group'>
+              <label htmlFor='issue'>issue</label>
+              <select
+                name='issue'
+                id='issue'
+                className='form-control'
+                value={issue}
+                ref={selectIssueRef}
+                onChange={onChangeIssue}>
+                <option value={1}>-- select type --</option>
+                {issuesList.map((issue) => (
+                  <option key={issue.key} value={issue.type}>
+                    {issue.type}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <div className='form-group'>
             <label htmlFor='platform'>description</label>

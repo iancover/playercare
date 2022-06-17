@@ -21,8 +21,8 @@ const ticketSchema = mongoose.Schema(
         'Unresponsive',
         'Connection',
         'Memory',
-        'Graphics',
-        'Sounds',
+        'Video',
+        'Audio',
         'Other',
       ],
     },
@@ -50,8 +50,8 @@ module.exports = mongoose.model('Ticket', ticketSchema);
 // unresponsive - i.e. not starting, launching or responding to system interactions, etc.
 // connection - i.e. bad or no network connection, unable to sync with online account, etc.
 // memory - i.e. player progress not saving, loss of data from previous saved session, etc.
-// graphics - i.e. screen tearing, pixelation, glitches, image/color irregularities, etc.
-// sounds - i.e. no audio, low volume, music or sound effects delayed or distorted, etc.
+// video - i.e. screen tearing, pixelation, glitches, image/color irregularities, etc.
+// audio - i.e. no sound, low volume, music or sound effects delayed or distorted, etc.
 // other - i.e. in-game purchases, general gameplay question/feedback, unlisted issue, etc.
 
 // OPTIONAL: maybe add an option in case issue is with game card/cartridge itself???

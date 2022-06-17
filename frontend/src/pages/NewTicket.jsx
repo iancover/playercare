@@ -38,11 +38,11 @@ function NewTicket() {
     // mute default option text
     if (selectPlatformRef.current.value === '1') {
       selectPlatformRef.current.className =
-        'form-control text-muted-light-blue';
+        'form-control text-muted-blue';
     }
     // mute default option text
     if (selectIssueRef.current.value === '1') {
-      selectIssueRef.current.className = 'form-control text-muted-light-blue';
+      selectIssueRef.current.className = 'form-control text-muted-blue';
     }
     if (isError) {
       toast.error(message);
@@ -100,15 +100,15 @@ function NewTicket() {
     <>
       <header className='heading'>
         <Button nav='Back' url={'/'} />
-        <h1>
-          <span className='heading-first'>tickets</span>/
-          <span className='heading-last'>new</span>
+        <h1 className='mb-2'>
+          <span className='text-grey-2'>tickets</span>/
+          <span className='text-blue'>new</span>
         </h1>
         <p>create a new support ticket</p>
       </header>
       <section className='form'>
         <div className='form-row'>
-          <div className='form-group'>
+          <div className='form-group mb-2'>
             <label htmlFor='name'>player</label>
             <input
               type='text'
@@ -117,7 +117,7 @@ function NewTicket() {
               disabled
             />
           </div>
-          <div className='form-group'>
+          <div className='form-group mb-2'>
             <label htmlFor='email'>email</label>
             <input
               type='text'
@@ -129,7 +129,7 @@ function NewTicket() {
         </div>
         <form onSubmit={onSubmit}>
           <div className='form-row'>
-            <div className='form-group'>
+            <div className='form-group mb-2'>
               <label htmlFor='platform'>platform</label>
               <select
                 name='platform'
@@ -146,7 +146,7 @@ function NewTicket() {
                 ))}
               </select>
             </div>
-            <div className='form-group'>
+            <div className='form-group mb-2'>
               <label htmlFor='issue'>issue</label>
               <select
                 name='issue'
@@ -164,7 +164,7 @@ function NewTicket() {
               </select>
             </div>
           </div>
-          <div className='form-group'>
+          <div className='form-group mb-2'>
             <label htmlFor='platform'>description</label>
             <textarea
               className='form-control'
@@ -174,10 +174,10 @@ function NewTicket() {
               onChange={onChangeDesc}
               placeholder='i.e. the game was not responding...'></textarea>
           </div>
-          <div className='form-group'>
+          <div className='form-group mb-2'>
             <button className='btn btn-dark-orange btn-block'>
               CREATE
-              <RiFileAddFill className='icon' />
+              <RiFileAddFill className='icon text-orange fs-5 mx-2 my-1' />
             </button>
           </div>
         </form>

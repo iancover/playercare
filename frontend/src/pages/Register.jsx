@@ -80,16 +80,16 @@ function Register() {
   return (
     <>
       <header className='heading'>
-        <h1>
-          <span className='heading-first'>player</span>/
-          <span className='heading-last'>register</span>
+        <h1 className='mb-2'>
+          <span className='text-grey-2'>player</span>/
+          <span className='text-blue'>register</span>
         </h1>
         <p>welcome, please register first</p>
       </header>
 
       <section className='form'>
         <form onSubmit={onSubmit}>
-          <div className='form-group'>
+          <div className='form-group mb-2'>
             <input
               type='text'
               className='form-control'
@@ -102,7 +102,7 @@ function Register() {
             />
           </div>
 
-          <div className='form-group'>
+          <div className='form-group mb-2'>
             <input
               type='email'
               className='form-control'
@@ -116,7 +116,7 @@ function Register() {
             />
           </div>
 
-          <div className='form-group'>
+          <div className='form-group mb-2'>
             <input
               type='password'
               className='form-control'
@@ -130,7 +130,7 @@ function Register() {
             />
           </div>
 
-          <div className='form-group'>
+          <div className='form-group mb-2'>
             <input
               type='password'
               className='form-control'
@@ -144,10 +144,10 @@ function Register() {
             />
           </div>
 
-          <div className='form-group'>
+          <div className='form-group mb-2'>
             <button className='btn btn-dark-orange btn-block'>
               REGISTER
-              <RiUserAddLine className='icon' />
+              <RiUserAddLine className='icon text-orange fs-5 mx-2 my-1' />
             </button>
           </div>
         </form>

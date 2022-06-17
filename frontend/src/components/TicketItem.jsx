@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function TicketItem({ ticket: { _id, status, createdAt, platform, issue } }) {
   return (
-    <div className='ticket-item'>
+    <div className='ticket-item text-blue bg-dark-3 rounded py-2 px-3 mb-3'>
       <div className='ticket-item-date'>
         {new Date(createdAt).toLocaleDateString('en-US')}
       </div>

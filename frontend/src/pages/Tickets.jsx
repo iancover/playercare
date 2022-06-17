@@ -36,16 +36,14 @@ function Tickets() {
     <>
       <header className='heading'>
         <Button nav='Home' url={'/'} />
-        <h1>
-          <span className='heading-first'>
-            player
-          </span>
-          /<span className='heading-last'>tickets</span>
+        <h1 className='mb-2'>
+          <span className='text-grey-2'>player</span>/
+          <span className='text-blue'>tickets</span>
         </h1>
         <p>open, pending and closed tickets</p>
       </header>
       <div className='tickets'>
-        <div className='tickets-headings'>
+        <div className='tickets-headings text-orange bg-dark-4 mb-3 py-3 fs-2 rounded'>
           <div>date</div>
           <div>status</div>
           <div>platform</div>

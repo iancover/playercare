@@ -7,3 +7,4 @@ node_modules
 
 # vs code settings
 .vscode
+.stylelintrc.json

@@ -32,21 +32,21 @@ function Nav() {
     <nav className='nav'>
       <div className='nav-container'>
         <div className='nav-item'>
-          <h2 className='logo'>
-            <Link to='/' className='logo-link'>
-              <IoGameController className='icon' />
-              <span className='logo-first'>player</span>.
-              <span className='logo-last'>care</span>
+          <h2 className='nav-logo'>
+            <Link to='/' className='text-grey-2'>
+              <IoGameController className='icon text-blue fs-5 my-1' />
+              <span className='text-orange fw-8'>player</span>.
+              <span className='text-blue'>care</span>
             </Link>
           </h2>
         </div>
 
-        <div className='nav-item nav-link'>
+        <div className='nav-item'>
           <ul>
             {user ? (
               <li>
                 <button className='logout-btn' onClick={onLogout}>
-                  <RiLogoutCircleLine className='icon' />
+                  <RiLogoutCircleLine className='icon text-orange fs-5 my-1' />
                   logout
                 </button>
               </li>
@@ -54,13 +54,13 @@ function Nav() {
               <>
                 <li>
                   <Link to='/login'>
-                    <RiLoginCircleLine className='icon' />
+                    <RiLoginCircleLine className='icon text-orange fs-5 my-1' />
                     login
                   </Link>
                 </li>
                 <li>
                   <Link to='/register'>
-                    <RiUserAddLine className='icon' />
+                    <RiUserAddLine className='icon text-orange fs-5 my-1' />
                     register
                   </Link>
                 </li>
@@ -68,14 +68,14 @@ function Nav() {
             ) : location.pathname === '/login' ? (
               <li>
                 <Link to='/register'>
-                  <RiUserAddLine className='icon' />
+                  <RiUserAddLine className='icon text-orange fs-5 my-1' />
                   register
                 </Link>
               </li>
             ) : (
               <li>
                 <Link to='/login'>
-                  <RiLoginCircleLine className='icon' />
+                  <RiLoginCircleLine className='icon text-orange fs-5 my-1' />
                   login
                 </Link>
               </li>

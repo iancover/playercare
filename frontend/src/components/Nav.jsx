@@ -31,53 +31,57 @@ function Nav() {
   return (
     <nav className='nav'>
       <div className='nav-container'>
-        <h2 className='logo'>
-          <Link to='/' className='logo-link'>
-            <IoGameController className='icon' />
-            <span className='logo-first'>player</span>.
-            <span className='logo-last'>care</span>
-          </Link>
-        </h2>
+        <div className='nav-item'>
+          <h2 className='logo'>
+            <Link to='/' className='logo-link'>
+              <IoGameController className='icon' />
+              <span className='logo-first'>player</span>.
+              <span className='logo-last'>care</span>
+            </Link>
+          </h2>
+        </div>
 
-        <ul>
-          {user ? (
-            <li>
-              <button className='logout-btn' onClick={onLogout}>
-                <RiLogoutCircleLine className='icon' />
-                logout
-              </button>
-            </li>
-          ) : location.pathname === '/' ? (
-            <>
+        <div className='nav-item nav-link'>
+          <ul>
+            {user ? (
               <li>
-                <Link to='/login'>
-                  <RiLoginCircleLine className='icon' />
-                  login
-                </Link>
+                <button className='logout-btn' onClick={onLogout}>
+                  <RiLogoutCircleLine className='icon' />
+                  logout
+                </button>
               </li>
+            ) : location.pathname === '/' ? (
+              <>
+                <li>
+                  <Link to='/login'>
+                    <RiLoginCircleLine className='icon' />
+                    login
+                  </Link>
+                </li>
+                <li>
+                  <Link to='/register'>
+                    <RiUserAddLine className='icon' />
+                    register
+                  </Link>
+                </li>
+              </>
+            ) : location.pathname === '/login' ? (
               <li>
                 <Link to='/register'>
                   <RiUserAddLine className='icon' />
                   register
                 </Link>
               </li>
-            </>
-          ) : location.pathname === '/login' ? (
-            <li>
-              <Link to='/register'>
-                <RiUserAddLine className='icon' />
-                register
-              </Link>
-            </li>
-          ) : (
-            <li>
-              <Link to='/login'>
-                <RiLoginCircleLine className='icon' />
-                login
-              </Link>
-            </li>
-          )}
-        </ul>
+            ) : (
+              <li>
+                <Link to='/login'>
+                  <RiLoginCircleLine className='icon' />
+                  login
+                </Link>
+              </li>
+            )}
+          </ul>
+        </div>
       </div>
     </nav>
   );

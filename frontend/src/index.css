@@ -2,17 +2,16 @@
 
 :root {
   /* GREYS */
-  --darkest: #252727;
-  --darker: #292b2b;
-  --dark: #303232;
-  --darkish: #383939;
-  --mid-dark: #474848;
-  --low-dark: #515252;
-  --not-dark: #5b5d5d;
-  --un-dark: #656767;
-  --greyish: #eaeaea7c;
-  --grey: #bebebe;
-  --light-grey: #e7e7e7;
+  --dark-4: #252727;
+  --dark-3: #292b2b;
+  --dark-2: #303232;
+  --dark-1: #383939;
+  --grey-4: #474848;
+  --grey-3: #515252;
+  --grey-2: #656767;
+  --grey-1: #eaeaea7c;
+  --light-2: #bebebe;
+  --light-1: #e7e7e7;
 
   /* DARK COLORS */
   --dark-blue: #0f1e2e;
@@ -47,7 +46,7 @@
 body {
   font-family: 'Rubik', sans-serif;
   height: 100vh;
-  background-color: var(--dark);
+  background-color: var(--dark-2);
 }
 
 /*** MAIN DIV ***/
@@ -59,11 +58,6 @@ body {
   text-align: center;
 }
 
-h1,
-h2,
-h3 {
-  margin-bottom: 10px;
-}
 
 h1 {
   font-weight: 500;
@@ -98,61 +92,23 @@ li {
   line-height: 2.2;
 }
 
-/*  UTILITY  */
-.opacity-100 {
-  opacity: 1;
-}
-.opacity-75 {
-  opacity: 0.75;
-}
-.opacity-50 {
-  opacity: 0.5;
-}
-.opacity-25 {
-  opacity: 0.25;
-}
-.fst-italic {
-  font-style: italic;
-}
-.text-muted-light-blue {
-  color: var(--muted-blue) !important;
-}
+/*** NAV ***/
 
-/*** LOGO ***/
-
-.logo {
+.nav-logo {
   margin-bottom: -2px;
   font-weight: 800;
   font-size: 2.1rem;
   font-family: monospace;
-  color: var(--un-dark);
+  color: var(--grey-2);
 }
 
-.logo .icon {
-  color: var(--blue);
+.nav-logo .icon {
   font-size: 2.2rem;
   margin-right: 10px;
 }
 
-.logo-link {
-  color: var(--un-dark);
-}
-
-.logo-first {
-  font-weight: 800;
-  color: var(--orange);
-}
-
-.logo-last {
-  color: var(--blue);
-  /* color: var(--un-dark); */
-}
-
 .icon {
-  margin: 0 5px;
-  font-size: 1.5rem;
   vertical-align: middle;
-  color: var(--orange);
 }
 
 .btn-icon {
@@ -160,12 +116,10 @@ li {
   vertical-align: middle;
 }
 
-/***  NAV  ***/
-
 .nav {
   margin-bottom: 30px;
   padding: 10px 5% 20px 10%;
-  background-color: var(--darkest);
+  background-color: var(--dark-4);
 }
 
 .nav-container {
@@ -192,7 +146,7 @@ li {
 
 .nav ul li a:hover,
 .nav ul li button:hover {
-  color: var(--un-dark);
+  color: var(--grey-2);
   cursor: pointer;
 }
 
@@ -208,16 +162,7 @@ li {
   padding: 0 10px;
   font-size: 1.7rem;
   font-weight: 600;
-  color: var(--low-dark);
-}
-
-.heading-first {
-  color: var(--un-dark);
-}
-
-.heading-last {
-  font-weight: 400;
-  color: var(--blue);
+  color: var(--grey-3);
 }
 
 .heading h1 {
@@ -244,7 +189,7 @@ li {
 
 .boxes div {
   padding: 30px;
-  border: 1px solid var(--light-grey);
+  border: 1px solid var(--light-1);
   border-radius: 10px;
 }
 
@@ -253,7 +198,7 @@ li {
 }
 
 .boxes a:hover {
-  color: var(--un-dark);
+  color: var(--grey-2);
 }
 
 /***  FORMS  ***/
@@ -281,25 +226,23 @@ select.form-control {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin-bottom: 10px;
 }
 
-.form-group .form-control {
-  /* width: 100%; */
+.form-control {
   padding: 10px;
-  border: 1px solid var(--mid-dark);
+  border: 1px solid var(--grey-4);
   border-radius: 5px;
   margin-bottom: 10px;
   font-family: inherit;
   color: var(--blue);
-  background-color: var(--darker);
+  background-color: var(--dark-3);
 }
 
 .form-group label {
   /* display: block; */
   margin: 0 0 5px 3px;
   font-size: 1.2rem;
-  color: var(--not-dark);
+  color: var(--grey-2);
   text-align: left;
 }
 
@@ -374,54 +317,54 @@ select.form-control {
 
 /* btn colors */
 .btn-dark {
-  color: var(--un-dark);
-  background-color: var(--darkest);
-  border: 1.8px solid var(--darkest);
+  color: var(--grey-2);
+  background-color: var(--dark-4);
+  border: 1.8px solid var(--dark-4);
 }
 
 .btn-dark-blue {
   color: var(--blue);
-  background-color: var(--darkest);
-  border: 1.8px solid var(--darkest);
+  background-color: var(--dark-4);
+  border: 1.8px solid var(--dark-4);
 }
 
 .btn-dark-orange {
   color: var(--orange);
-  background-color: var(--darkest);
-  border: 1.8px solid var(--darkest);
+  background-color: var(--dark-4);
+  border: 1.8px solid var(--dark-4);
 }
 
 .btn-dark-outline-blue {
   color: var(--blue);
-  background-color: var(--darkest);
+  background-color: var(--dark-4);
   border: 1.8px solid var(--blue);
 }
 
 .btn-dark-outline-orange {
   color: var(--orange);
-  background-color: var(--darkish);
+  background-color: var(--dark-1);
   border: 2px solid var(--muted-orange);
   font-size: 16px;
 }
 
 .btn-light-outline-blue {
   color: var(--blue);
-  background-color: var(--darkish);
+  background-color: var(--dark-1);
   border: 2px solid var(--muted-blue);
   font-size: 16px;
 }
 
 .btn-light-outline-orange {
   color: var(--orange);
-  background-color: var(--darkish);
+  background-color: var(--dark-1);
   border: 1.8px solid var(--muted-orange);
   font-size: 16px;
 }
 
 .btn-blue {
-  color: var(--dark);
+  color: var(--dark-2);
   background-color: var(--muted-blue);
-  border-color: var(--low-dark);
+  border-color: var(--grey-3);
   border-width: 0;
 }
 
@@ -457,16 +400,16 @@ select.form-control {
 }
 
 .btn-inverse-blue {
-  color: var(--darkest);
+  color: var(--dark-4);
   background-color: rgba(89, 130, 158, 0.5);
-  border-color: var(--darker);
+  border-color: var(--dark-3);
   border-width: 1.8px;
 }
 
 .btn-inverse-orange {
-  color: var(--darkest);
+  color: var(--dark-4);
   background-color: var(--orange);
-  border-color: var(--darker);
+  border-color: var(--dark-3);
   border-width: 1.8px;
 }
 
@@ -484,7 +427,7 @@ select.form-control {
   top: 5px;
   right: 5px;
   font-size: 16px;
-  color: var(--darkest);
+  color: var(--dark-4);
   background: none;
   border: none;
   cursor: pointer;
@@ -504,23 +447,13 @@ select.form-control {
   gap: 20px;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding: 10px 15px;
-  border-radius: 5px;
   text-align: center;
 }
 
 .tickets-headings {
-  padding: 15px 0;
-  color: var(--orange);
-  background-color: var(--darkest);
-  font: normal normal 1.2rem/1.5 Verdana, Geneva, Tahoma sans-serif;
+  line-height: 1.5;
+  font-family: Verdana, Geneva, Tahoma sans-serif;
   font-stretch: ultra-expanded;
-}
-
-.ticket-item {
-  color: var(--blue);
-  background-color: var(--darker);
 }
 
 .status {
@@ -533,9 +466,9 @@ select.form-control {
 }
 
 .status-open {
-  /* color: var(--grey);
+  /* color: var(--light;
   background-color: var(--muted-yellow);
-  border: thin var(--greyish) solid;
+  border: thin var(--grey-1) solid;
   opacity: 0.9; */
 
   /* outline option */
@@ -545,9 +478,9 @@ select.form-control {
 }
 
 .status-pending {
-  /* color: var(--grey);
+  /* color: var(--light;
   background-color: var(--muted-light-green);
-  border: thin var(--greyish) solid;
+  border: thin var(--grey-1) solid;
   opacity: 0.9; */
   /* outline option */
   color: var(--light-green);
@@ -556,9 +489,9 @@ select.form-control {
 }
 
 .status-closed {
-  /* color: var(--grey);
+  /* color: var(--light;
   background-color: var(--red);
-  border: thin var(--greyish) solid;
+  border: thin var(--grey-1) solid;
   opacity: 0.9; */
   /* outline option */
   color: var(--light-red);
@@ -567,11 +500,11 @@ select.form-control {
 }
 
 .ticket-item-date {
-  color: var(--greyish);
+  color: var(--grey-1);
 }
 
 .ticket-item-platform {
-  color: var(--un-dark);
+  color: var(--grey-2);
 }
 
 .ticket-item-issue {
@@ -614,23 +547,27 @@ p.status-complete {
   width: 100%;
 }
 
+.ticket-heading {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  font: Verdana, Geneva, Tahoma sans-serif;
+  font-stretch: ultra-expanded;
+}
+
 .ticket-desc {
-  margin: 20px 0;
-  padding: 10px 15px;
-  font-size: 17px;
-  background-color: var(--light-grey);
-  border: 1px var(--un-dark) solid;
-  border-radius: 5px;
+  text-align: left;
 }
 
 .ticket-created {
-  border: 1px solid var(--light-grey);
+  border: 1px solid var(--light-1);
   border-radius: 5px;
   padding: 50px;
 }
 
 .ticket-updated {
-  border: 1px solid var(--light-grey);
+  border: 1px solid var(--light-1);
   border-radius: 5px;
   padding: 50px;
 }
@@ -659,7 +596,7 @@ p.status-complete {
   margin-bottom: 20px;
   padding: 20px;
   text-align: left;
-  border: 1px solid var(--light-grey);
+  border: 1px solid var(--light-1);
   border-radius: 5px;
 }
 
@@ -669,7 +606,7 @@ p.status-complete {
   align-items: center;
   margin-bottom: 20px;
   padding: 5px 20px;
-  background-color: var(--light-grey);
+  background-color: var(--light-1);
 }
 
 .note-date {
@@ -712,7 +649,7 @@ footer {
   width: 64px;
   height: 64px;
   border: 8px solid;
-  border-color: var(--darkest) transparent var(--un-dark) transparent;
+  border-color: var(--dark-4) transparent var(--grey-2) transparent;
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
 }

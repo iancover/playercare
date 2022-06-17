@@ -8,26 +8,34 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // Components
 import Nav from './components/Nav';
+import PrivateRoute from './components/PrivateRoute';
 
 // Pages
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import NewTicket from './pages/NewTicket';
-import PrivateRoute from './components/PrivateRoute';
+import Tickets from './pages/Tickets';
+import Ticket from './pages/Ticket';
 
 function App() {
   return (
     <>
       <Router>
+        <Nav />
         <div className='container'>
-          <Nav />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/new-ticket' element={<PrivateRoute />}>
               <Route path='/new-ticket' element={<NewTicket />} />
+            </Route>
+            <Route path='/tickets' element={<PrivateRoute />}>
+              <Route path='/tickets' element={<Tickets />} />
+            </Route>
+            <Route path='/ticket/:ticketId' element={<PrivateRoute />}>
+              <Route path='/ticket/:ticketId' element={<Ticket />} />
             </Route>
           </Routes>
         </div>

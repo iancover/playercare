@@ -9,7 +9,7 @@ function Home() {
     <>
       <header className='heading'>
         <h1>
-          <span className='heading-first'>helpdesk</span>/
+          <span className='heading-first'>help desk</span>/
           <span className='heading-last'>tickets</span>
         </h1>
         <p>search existing or create new ticket</p>

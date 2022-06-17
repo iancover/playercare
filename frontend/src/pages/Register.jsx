@@ -9,6 +9,8 @@ import { register, reset } from '../features/auth/authSlice';
 import { toast } from 'react-toastify';
 // Spinner
 import Spinner from '../components/Spinner';
+// Remix Icons
+import { RiUserAddLine } from 'react-icons/ri';
 
 // Register component
 function Register() {
@@ -80,11 +82,9 @@ function Register() {
       <header className='heading'>
         <h1>
           <span className='heading-first'>player</span>/
-          <span className='heading-last'>sign-up</span>
+          <span className='heading-last'>register</span>
         </h1>
-        <p>
-          welcome, let's first setup your account
-        </p>
+        <p>welcome, please register first</p>
       </header>
 
       <section className='form'>
@@ -145,7 +145,10 @@ function Register() {
           </div>
 
           <div className='form-group'>
-            <button className='btn btn-block'>Sign Up</button>
+            <button className='btn btn-dark-orange btn-block'>
+              REGISTER
+              <RiUserAddLine className='icon' />
+            </button>
           </div>
         </form>
       </section>

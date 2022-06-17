@@ -6,16 +6,14 @@ import { useSelector, useDispatch } from 'react-redux';
 // Slice
 import { logout, reset } from '../features/auth/authSlice';
 
+// Ionicons (logo)
+import { IoGameController } from 'react-icons/io5';
 // Remix Icons
 import {
   RiLoginCircleLine,
   RiLogoutCircleLine,
   RiUserAddLine,
-  // eslint-disable-next-line no-unused-vars
-  RiTerminalBoxFill,
 } from 'react-icons/ri';
-// Ionicons
-import { IoGameController } from 'react-icons/io5';
 
 // Nav component
 function Nav() {
@@ -46,7 +44,7 @@ function Nav() {
             <li>
               <button className='logout-btn' onClick={onLogout}>
                 <RiLogoutCircleLine className='icon' />
-                sign out
+                logout
               </button>
             </li>
           ) : location.pathname === '/' ? (
@@ -54,13 +52,13 @@ function Nav() {
               <li>
                 <Link to='/login'>
                   <RiLoginCircleLine className='icon' />
-                  sign in
+                  login
                 </Link>
               </li>
               <li>
                 <Link to='/register'>
                   <RiUserAddLine className='icon' />
-                  sign up
+                  register
                 </Link>
               </li>
             </>
@@ -68,14 +66,14 @@ function Nav() {
             <li>
               <Link to='/register'>
                 <RiUserAddLine className='icon' />
-                sign up
+                register
               </Link>
             </li>
           ) : (
             <li>
               <Link to='/login'>
                 <RiLoginCircleLine className='icon' />
-                sign in
+                login
               </Link>
             </li>
           )}

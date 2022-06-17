@@ -13,6 +13,8 @@ import { issueTypes } from '../data/issueTypes';
 import { toast } from 'react-toastify';
 // Spinner
 import Spinner from '../components/Spinner';
+// Ant Design Icons
+import { RiFileAddFill } from 'react-icons/ri';
 
 function NewTicket() {
   // get user & tickets from state
@@ -65,6 +67,7 @@ function NewTicket() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log({ platform, issue, description });
     dispatch(createTicket({ platform, issue, description }));
   };
 
@@ -99,8 +102,8 @@ function NewTicket() {
       <header className='heading'>
         <Button nav='Back' url={'/'} />
         <h1>
-          <span className='heading-first'>open</span>/
-          <span className='heading-last'>ticket</span>
+          <span className='heading-first'>tickets</span>/
+          <span className='heading-last'>new</span>
         </h1>
         <p>create a new support ticket</p>
       </header>
@@ -140,13 +143,13 @@ function NewTicket() {
               ref={selectIssueRef}
               onChange={onChangeIssue}>
               <option value={1}>-- select type --</option>
-              <option value={'malfunction'}>Malfunction</option>
-              <option value={'unresponsive'}>Unresponsive</option>
-              <option value={'connection'}>Connection</option>
-              <option value={'memory'}>Memory</option>
-              <option value={'graphics'}>Graphics</option>
-              <option value={'sounds'}>Sounds</option>
-              <option value={'other'}>Other</option>
+              <option value={'Malfunction'}>Malfunction</option>
+              <option value={'Unresponsive'}>Unresponsive</option>
+              <option value={'Connection'}>Connection</option>
+              <option value={'Memory'}>Memory</option>
+              <option value={'Graphics'}>Graphics</option>
+              <option value={'Sounds'}>Sounds</option>
+              <option value={'Other'}>Other</option>
             </select>
           </div>
           <div className='form-group'>
@@ -160,7 +163,10 @@ function NewTicket() {
               placeholder='i.e. the game was not responding...'></textarea>
           </div>
           <div className='form-group'>
-            <button className='btn btn-block'>Submit</button>
+            <button className='btn btn-dark-orange btn-block'>
+              CREATE
+              <RiFileAddFill className='icon' />
+            </button>
           </div>
         </form>
       </section>

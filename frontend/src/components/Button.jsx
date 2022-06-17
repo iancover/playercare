@@ -13,7 +13,7 @@ const Button = ({ nav, url }) => {
   }, [nav]);
 
   return (
-    <Link to={url} className='btn btn-back btn-sm'>
+    <Link to={url} className='btn btn-dark btn-sm'>
       <IoCaretBack className='btn-icon' />
       {text}
     </Link>

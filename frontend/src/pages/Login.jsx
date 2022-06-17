@@ -9,6 +9,8 @@ import { login, reset } from '../features/auth/authSlice';
 import { toast } from 'react-toastify';
 // Spinner
 import Spinner from '../components/Spinner';
+// Remix Icons
+import { RiLoginCircleLine } from 'react-icons/ri';
 
 // Login component
 function Login() {
@@ -71,9 +73,9 @@ function Login() {
       <header className='heading'>
         <h1>
           <span className='heading-first'>player</span>/
-          <span className='heading-last'>sign-in</span>
+          <span className='heading-last'>login</span>
         </h1>
-        <p>welcome back, please login to your account</p>
+        <p>welcome back, please login first</p>
       </header>
 
       <section className='form'>
@@ -105,7 +107,10 @@ function Login() {
           </div>
 
           <div className='form-group'>
-            <button className='btn btn-block'>Sign In</button>
+            <button className='btn btn-dark-orange btn-block'>
+              LOGIN
+              <RiLoginCircleLine className='icon' />
+            </button>
           </div>
         </form>
       </section>

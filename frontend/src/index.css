@@ -121,8 +121,9 @@ li {
 /*** LOGO ***/
 
 .logo {
+  margin-bottom: -2px;
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-family: monospace;
   color: var(--un-dark);
 }
@@ -162,16 +163,15 @@ li {
 /***  NAV  ***/
 
 .nav {
-  display: flex;
-  /* justify-content: space-between; */
-  padding: 10px 5% 10px 10%;
   margin-bottom: 30px;
+  padding: 10px 5% 20px 10%;
   background-color: var(--darkest);
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 80vw;
 }
 
@@ -204,8 +204,8 @@ li {
 /*** HEADING ***/
 
 .heading {
-  margin-bottom: 25px;
-  padding: 0 20px;
+  margin-bottom: 20px;
+  padding: 0 10px;
   font-size: 1.7rem;
   font-weight: 600;
   color: var(--low-dark);
@@ -218,6 +218,11 @@ li {
 .heading-last {
   font-weight: 400;
   color: var(--blue);
+}
+
+.heading h1 {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .heading p {
@@ -266,22 +271,21 @@ select.form-control {
   margin: 0 auto;
 }
 
-.form-control::placeholder {
-  color: var(--blue);
-  opacity: 0.65;
-}
-
-.form-control:focus {
-  outline: none;
-  border: 1px var(--blue) solid;
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .form-group {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   margin-bottom: 10px;
 }
 
 .form-group .form-control {
-  width: 100%;
+  /* width: 100%; */
   padding: 10px;
   border: 1px solid var(--mid-dark);
   border-radius: 5px;
@@ -292,11 +296,25 @@ select.form-control {
 }
 
 .form-group label {
-  display: block;
+  /* display: block; */
   margin: 0 0 5px 3px;
   font-size: 1.2rem;
   color: var(--not-dark);
   text-align: left;
+}
+
+.form-control::placeholder {
+  color: var(--blue);
+  opacity: 0.65;
+}
+
+.form-control:focus {
+  outline: none;
+  border: 1px var(--blue) solid;
+}
+
+.form-disabled {
+  color: var(--muted-blue) !important;
 }
 
 /***  BUTTONS  ***/
@@ -327,7 +345,7 @@ select.form-control {
 /* btn sizes */
 .btn-sm {
   width: 15vh;
-  padding: 5px;
+  padding: 5px 10px 5px 5px;
   font-size: 14px;
   font-weight: 500;
 }
@@ -347,8 +365,6 @@ select.form-control {
 }
 
 .btn-block {
-  display: flex;
-  justify-content: end;
   width: 100%;
   margin-bottom: 20px;
   padding: 15px 20px;
@@ -479,33 +495,10 @@ select.form-control {
   transform: scale(0.98);
 }
 
-/*** TICKET ***/
+/*** TICKETS ***/
 
-.ticket-created {
-  border: 1px solid var(--light-grey);
-  border-radius: 5px;
-  padding: 50px;
-}
-
-.ticket-number {
-  margin-bottom: 30px;
-}
-
-.ticket-number h2 {
-  font-size: 2.3rem;
-  margin-bottom: 10px;
-}
-
-.ticket-number p {
-  font-size: 1.3rem;
-}
-
-.ticket-info {
-  font-size: 1.3rem;
-}
-
-.ticket,
-.ticket-headings {
+.tickets-headings,
+.ticket-item {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
@@ -513,12 +506,11 @@ select.form-control {
   align-items: center;
   margin-bottom: 20px;
   padding: 10px 15px;
-  background-color: var(--light-grey);
   border-radius: 5px;
   text-align: center;
 }
 
-.ticket-headings {
+.tickets-headings {
   padding: 15px 0;
   color: var(--orange);
   background-color: var(--darkest);
@@ -526,7 +518,7 @@ select.form-control {
   font-stretch: ultra-expanded;
 }
 
-.ticket {
+.ticket-item {
   color: var(--blue);
   background-color: var(--darker);
 }
@@ -631,6 +623,35 @@ p.status-complete {
   border-radius: 5px;
 }
 
+.ticket-created {
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+  padding: 50px;
+}
+
+.ticket-updated {
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+  padding: 50px;
+}
+
+.ticket-number {
+  margin-bottom: 30px;
+}
+
+.ticket-number h2 {
+  font-size: 2.3rem;
+  margin-bottom: 10px;
+}
+
+.ticket-number p {
+  font-size: 1.3rem;
+}
+
+.ticket-info {
+  font-size: 1.3rem;
+}
+
 /*** NOTES ***/
 
 .note {
@@ -706,6 +727,12 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .nav-container {
+    padding: 5px 0;
+  }
+  .logo {
+    font-size: 1.8rem;
+  }
   .boxes {
     grid-template-columns: 1fr;
   }

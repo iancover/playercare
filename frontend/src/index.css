@@ -58,7 +58,6 @@ body {
   text-align: center;
 }
 
-
 h1 {
   font-weight: 500;
 }
@@ -413,9 +412,11 @@ select.form-control {
   border-width: 1.8px;
 }
 
-.btn-danger {
-  background: var(--red);
-  border: none;
+.btn-inverse-red {
+  color: var(--dark-4);
+  background-color: var(--red);
+  border-color: var(--red);
+  border-width: 1.8px;
 }
 
 .btn:hover {
@@ -586,7 +587,9 @@ p.status-complete {
 }
 
 .ticket-info {
-  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  
 }
 
 /*** NOTES ***/

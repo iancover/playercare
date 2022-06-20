@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false })); // true = 'qs' library
 // Mount routes
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/tickets', require('./routes/ticketRoutes'));
-app.use('/api/tickets/ticket/notes', require('./routes/noteRoutes'));
+app.use('/api/tickets/:ticketId/notes', require('./routes/noteRoutes'));
 
 // Routes
 app.get('/', (req, res) => {

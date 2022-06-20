@@ -14,6 +14,11 @@ const {
 // Middleware
 const auth = require('../middleware/authMiddleware');
 
+// Import note routes to merge ticket id params
+const noteRouter = require('./noteRoutes');
+// in note req and re-route to note routes
+router.use('/:ticketId/notes', noteRouter);
+
 // Routes
 router.route('/').get(auth, getTickets).post(auth, createTicket);
 

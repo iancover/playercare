@@ -7,7 +7,8 @@
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "npm-start": "to run the backend only",
     "npm-run-server": "to run the node backend auto refreshing on changes",
     "npm-run-client": "to run the react frontend only",
-    "npm-run-dev": "to run backend auto refreshing and the frontend"
+    "npm-run-dev": "to run backend auto refreshing and the frontend",
+    "npm-run-heroku-postbuild": "installs dependencies for frontend and runs build in heroku to run react app"
   }
 }

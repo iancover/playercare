@@ -24,10 +24,18 @@ app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/tickets', require('./routes/ticketRoutes'));
 app.use('/api/tickets/:ticketId/notes', require('./routes/noteRoutes'));
 
-// Routes
-app.get('/', (req, res) => {
-  res.status(201).json({ message: 'PlayerCare backend API running...' });
-});
+// Serve frontend in production (to deploy to Heroku)
+if (process.env.NODE_ENV === 'production') {
+  // set build folder static & redirect to 'root' index.html
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+  app.get('*', (req, res) => {
+    res.sendFild(__dirname, '../', 'frontend', 'build', 'index.html');
+  });
+} else {
+  app.get('/', (req, res) => {
+    res.status(201).json({ message: 'PlayerCare backend API running...' });
+  });
+}
 
 // Handle errors
 app.use(errorHandler);

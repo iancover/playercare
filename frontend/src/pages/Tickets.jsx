@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // Store
@@ -47,8 +48,8 @@ function Tickets() {
           <div>date</div>
           <div>status</div>
           <div>platform</div>
-          <div>issue type</div>
-          <div></div>
+          <div className='mr-3'>issue</div>
+          <div className='mr-6'>ticket</div>
         </div>
         {tickets.map((ticket) => (
           <TicketItem key={ticket._id} ticket={ticket} />

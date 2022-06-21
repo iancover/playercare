@@ -11,7 +11,7 @@ import { getTicket, closeTicket } from '../features/tickets/ticketSlice';
 import {
   addNote,
   getNotes,
-  reset as notesReset,
+  reset as noteReset,
 } from '../features/notes/noteSlice';
 // Components
 import Button from '../components/Button';
@@ -54,6 +54,7 @@ function Ticket() {
     e.preventDefault();
     dispatch(addNote({ noteText, ticketId }));
     closeModal();
+    setNoteText('');
   };
 
   // Open/close modal

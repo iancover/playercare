@@ -310,6 +310,21 @@
 .text-yellow {
   color: var(--yellow);
 }
+.text-light-blue {
+  color: var(--light-blue) !important;
+}
+.text-light-green {
+  color: var(--light-green) !important;
+}
+.text-light-red {
+  color: var(--light-red) !important;
+}
+.text-light-orange {
+  color: var(--light-orange) !important;
+}
+.text-light-yellow {
+  color: var(--light-yellow) !important;
+}
 .text-muted-blue {
   color: var(--muted-blue) !important;
 }

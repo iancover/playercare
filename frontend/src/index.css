@@ -1,5 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap'); */
-
 :root {
   /* GREYS */
   --dark-4: #252727;
@@ -67,6 +65,13 @@ h3 {
   font-weight: 300;
 }
 
+hr {
+  margin-top: 15px;
+  height: 1.5px;
+  background-color: var(--grey-4);
+  border: none;
+}
+
 a,
 button.logout-btn {
   text-decoration: none;
@@ -89,6 +94,27 @@ ul {
 
 li {
   line-height: 2.2;
+}
+
+/*** MODAL ***/
+.modal {
+  position: relative;
+  width: 600px;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 /*** NAV ***/
@@ -341,8 +367,14 @@ select.form-control {
 
 .btn-dark-outline-orange {
   color: var(--orange);
-  background-color: var(--dark-1);
+  background-color: var(--dark-4);
   border: 2px solid var(--muted-orange);
+  font-size: 16px;
+}
+.btn-dark-outline-red {
+  color: var(--red);
+  background-color: var(--dark-4);
+  border: 2px solid var(--muted-red);
   font-size: 16px;
 }
 
@@ -356,7 +388,14 @@ select.form-control {
 .btn-light-outline-orange {
   color: var(--orange);
   background-color: var(--dark-1);
-  border: 1.8px solid var(--muted-orange);
+  border: 2px solid var(--muted-orange);
+  font-size: 16px;
+}
+
+.btn-light-outline-red {
+  color: var(--light-red);
+  background-color: var(--dark-1);
+  border: 1.5px solid var(--light-red);
   font-size: 16px;
 }
 
@@ -425,10 +464,10 @@ select.form-control {
 
 .btn-close {
   position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 16px;
-  color: var(--dark-4);
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: var(--grey-4);
   background: none;
   border: none;
   cursor: pointer;
@@ -457,7 +496,7 @@ select.form-control {
   font-stretch: ultra-expanded;
 }
 
-.status {
+.ticket-status {
   justify-self: center;
   padding: 3px 20px;
   width: 100px;
@@ -466,66 +505,22 @@ select.form-control {
   border-radius: 10px;
 }
 
-.status-open {
-  /* color: var(--light;
-  background-color: var(--muted-yellow);
-  border: thin var(--grey-1) solid;
-  opacity: 0.9; */
-
-  /* outline option */
+.ticket-status-open {
   color: var(--yellow);
   background-color: transparent;
   border: 2px solid var(--yellow);
 }
 
-.status-pending {
-  /* color: var(--light;
-  background-color: var(--muted-light-green);
-  border: thin var(--grey-1) solid;
-  opacity: 0.9; */
-  /* outline option */
+.ticket-status-pending {
   color: var(--light-green);
   background-color: transparent;
   border: 2px solid var(--light-green);
 }
 
-.status-closed {
-  /* color: var(--light;
-  background-color: var(--red);
-  border: thin var(--grey-1) solid;
-  opacity: 0.9; */
-  /* outline option */
+.ticket-status-closed {
   color: var(--light-red);
   background-color: transparent;
   border: 2px solid var(--light-red);
-}
-
-.ticket-item-date {
-  color: var(--grey-1);
-}
-
-.ticket-item-platform {
-  color: var(--grey-2);
-}
-
-.ticket-item-issue {
-  color: var(--blue);
-}
-
-p.status-in-progress {
-  color: var(--orange);
-}
-
-p.status-waiting {
-  color: var(--light-red);
-}
-
-p.status-ready {
-  color: var(--blue);
-}
-
-p.status-complete {
-  color: var(--light-green);
 }
 
 .ticket-page {
@@ -561,76 +556,9 @@ p.status-complete {
   text-align: left;
 }
 
-.ticket-created {
-  border: 1px solid var(--light-1);
-  border-radius: 5px;
-  padding: 50px;
-}
-
-.ticket-updated {
-  border: 1px solid var(--light-1);
-  border-radius: 5px;
-  padding: 50px;
-}
-
-.ticket-number {
-  margin-bottom: 30px;
-}
-
-.ticket-number h2 {
-  font-size: 2.3rem;
-  margin-bottom: 10px;
-}
-
-.ticket-number p {
-  font-size: 1.3rem;
-}
-
 .ticket-info {
   display: flex;
   justify-content: space-between;
-  
-}
-
-/*** NOTES ***/
-
-.note {
-  position: relative;
-  margin-bottom: 20px;
-  padding: 20px;
-  text-align: left;
-  border: 1px solid var(--light-1);
-  border-radius: 5px;
-}
-
-.note-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 5px 20px;
-  background-color: var(--light-1);
-}
-
-.note-date {
-  position: absolute;
-  top: 15px;
-  right: 10px;
-  font-size: 14px;
-}
-
-.delete-note {
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  color: var(--light-red);
-  cursor: pointer;
-}
-
-footer {
-  position: sticky;
-  top: 95vh;
-  text-align: center;
 }
 
 /*** SPINNER ***/

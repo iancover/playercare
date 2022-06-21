@@ -37,15 +37,14 @@ function NewTicket() {
   useEffect(() => {
     // mute default option text
     if (selectPlatformRef.current.value === '1') {
-      selectPlatformRef.current.className =
-        'form-control text-muted-blue';
+      selectPlatformRef.current.className = 'form-control text-muted-blue';
     }
     // mute default option text
     if (selectIssueRef.current.value === '1') {
       selectIssueRef.current.className = 'form-control text-muted-blue';
     }
     if (isError) {
-      toast.error(message);
+      toast.error(message, { theme: 'dark' });
     }
     if (isSuccess) {
       dispatch(reset());

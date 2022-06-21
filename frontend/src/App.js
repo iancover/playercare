@@ -1,9 +1,7 @@
-// React App
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Toastify
-// eslint-disable-next-line no-unused-vars
-import { ToastContainer, Flip, Slide, Zoom } from 'react-toastify';
+// Toastify (opts: Flip, Slide, Zoom, Bounce)
+import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Components
@@ -40,7 +38,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-      <ToastContainer draggable={false} transition={Slide} />
+      <ToastContainer draggable={false} transition={Bounce} />
     </>
   );
 }

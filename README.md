@@ -2,9 +2,13 @@
 
 ## Gaming Industry Help Desk
 
-A client-server REST application designed with the purpose of providing a tech support team at a video-game developing company, ticket creating and tracking capabilities; to assist **_players_** experiencing technical issues, with online support for their cross-platform products.
+A client-server REST application designed for a tech support team at a video-game developing company, with the purpose of providing **_players_** of their cross-platform game, who experience game-related technical issues, a _UI_ which assists them in opening support tickets and track their progress.
 
-Built using the [MERN](https://www.geeksforgeeks.org/mern-stack/) stack, for the frontend documentation see [PlayerCare UI](https://github.com/iancover/t-soup/tree/main/frontend/README.md)
+Project built with the [MERN](https://www.geeksforgeeks.org/mern-stack/) stack. For the frontend documentation see [PlayerCare UI](https://github.com/iancover/t-soup/tree/main/frontend/README.md)
+
+## Live Demo
+
+View the [Heroku](https://heroku.com) deployed app here: [PlayerCare](https://playercare.herokuapp.com/) 
 
 ---
 

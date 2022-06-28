@@ -1,4 +1,4 @@
-# [PlayerCare API](https://github.com/iancover/player-care)
+# [PlayerCare API](https://playercare.herokuapp.com/)
 
 ## Gaming Industry Help Desk
 
